@@ -1,0 +1,27 @@
+﻿@using BoxingChampionship.Models
+
+@model List<RankingMember>
+
+@{
+    ViewBag.Title = "Main Page";
+}
+
+<p>Ranking members</p>
+@foreach (var rankingMember in Model)
+{
+<ul id="menu">
+    <li>
+        Boxer Name: @Html.DisplayFor(modelItem => rankingMember.BoxerName)
+        <br />
+    </li>
+    <li>
+        Amount of Battles: @Html.DisplayFor(modelItem => rankingMember.AmountOfBattles)
+        <br />
+    </li>
+    <li>
+        Current Rank: @Html.DisplayFor(modelItem => rankingMember.CurrentRank)
+        <br />
+    </li>
+    
+</ul>
+}

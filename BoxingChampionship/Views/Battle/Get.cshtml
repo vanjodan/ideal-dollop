@@ -1,0 +1,46 @@
+﻿@using BoxingChampionship.Models
+
+@model List<Battle>
+
+@{
+    ViewBag.Title = "Championship Page";
+}
+
+<p>Battle List</p>
+@foreach (var battle in Model)
+{
+<ul id="menu">
+    <li>
+        Date: @Html.DisplayFor(modelItem => battle.Date)
+        <br />
+    </li>
+    <li>
+        Amount of Rounds: @Html.DisplayFor(modelItem => battle.AmountOfRounds)
+        <br />
+    </li>
+    <li>
+        First Boxer Name: @Html.DisplayFor(modelItem => battle.FirstBoxerName)
+        <br />
+    </li>
+    <li>
+        Second Boxer Name: @Html.DisplayFor(modelItem => battle.SecondBoxerName)
+        <br />
+    </li>
+    <li>
+        Winner Name: @Html.DisplayFor(modelItem => battle.WinnerName)
+        <br />
+    </li>
+    <li>
+        @Ajax.ActionLink(
+            "Delete battle",
+            "Delete",
+            "Battle",
+            new { id = battle.Id },
+            new AjaxOptions { HttpMethod = "POST" }
+        )
+        <br />
+    </li>
+
+    @*todo id pop-up with battlefield*@
+</ul>
+}
